@@ -1,0 +1,13 @@
+C:\Users\Matic\Desktop\Leto2021\O-IMA\Projekt1\ProjektDownloadMp3mp4\ProjektDownloadMp3mp4\bin\Release\netstandard2.0\ProjektDownloadMp3mp4.deps.json
+C:\Users\Matic\Desktop\Leto2021\O-IMA\Projekt1\ProjektDownloadMp3mp4\ProjektDownloadMp3mp4\bin\Release\netstandard2.0\ProjektDownloadMp3mp4.dll
+C:\Users\Matic\Desktop\Leto2021\O-IMA\Projekt1\ProjektDownloadMp3mp4\ProjektDownloadMp3mp4\bin\Release\netstandard2.0\ref\ProjektDownloadMp3mp4.dll
+C:\Users\Matic\Desktop\Leto2021\O-IMA\Projekt1\ProjektDownloadMp3mp4\ProjektDownloadMp3mp4\bin\Release\netstandard2.0\ProjektDownloadMp3mp4.pdb
+C:\Users\Matic\Desktop\Leto2021\O-IMA\Projekt1\ProjektDownloadMp3mp4\ProjektDownloadMp3mp4\obj\Release\netstandard2.0\ProjektDownloadMp3mp4.csprojAssemblyReference.cache
+C:\Users\Matic\Desktop\Leto2021\O-IMA\Projekt1\ProjektDownloadMp3mp4\ProjektDownloadMp3mp4\obj\Release\netstandard2.0\App.xaml.g.cs
+C:\Users\Matic\Desktop\Leto2021\O-IMA\Projekt1\ProjektDownloadMp3mp4\ProjektDownloadMp3mp4\obj\Release\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Matic\Desktop\Leto2021\O-IMA\Projekt1\ProjektDownloadMp3mp4\ProjektDownloadMp3mp4\obj\Release\netstandard2.0\ProjektDownloadMp3mp4.AssemblyInfoInputs.cache
+C:\Users\Matic\Desktop\Leto2021\O-IMA\Projekt1\ProjektDownloadMp3mp4\ProjektDownloadMp3mp4\obj\Release\netstandard2.0\ProjektDownloadMp3mp4.AssemblyInfo.cs
+C:\Users\Matic\Desktop\Leto2021\O-IMA\Projekt1\ProjektDownloadMp3mp4\ProjektDownloadMp3mp4\obj\Release\netstandard2.0\XamlC.stamp
+C:\Users\Matic\Desktop\Leto2021\O-IMA\Projekt1\ProjektDownloadMp3mp4\ProjektDownloadMp3mp4\obj\Release\netstandard2.0\ProjektDownloadMp3mp4.dll
+C:\Users\Matic\Desktop\Leto2021\O-IMA\Projekt1\ProjektDownloadMp3mp4\ProjektDownloadMp3mp4\obj\Release\netstandard2.0\ref\ProjektDownloadMp3mp4.dll
+C:\Users\Matic\Desktop\Leto2021\O-IMA\Projekt1\ProjektDownloadMp3mp4\ProjektDownloadMp3mp4\obj\Release\netstandard2.0\ProjektDownloadMp3mp4.pdb

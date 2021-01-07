@@ -13,8 +13,7 @@ namespace ProjektDownloadMp3mp4
     [DesignTimeVisible(false)]
     public partial class MainPage
     {
-        // fixme: replace this with a better x-platform solution
-        private const string DownloadsFolder = "/storage/emulated/0/Downloads";
+        private IDownloader _downloader = DependencyService.Get<IDownloader>();
 
         public MainPage()
         {
@@ -27,19 +26,8 @@ namespace ProjektDownloadMp3mp4
             var videoLink = Link.Text;
             //string link = "https://www.youtube.com/watch?v=wuJIqmha2Hk";
             var video = YouTube.Default.GetVideo(videoLink); // gets a Video object with info about the video
-            File.WriteAllBytes(Path.Combine(DownloadsFolder, video.FullName), video.GetBytes()); //no permission exception????????? download manager? manifest=yes
-
-            var videoName = video.FullName;
-            var theHistory = new UserHistoryClass(videoName, videoLink);
-
-            using (var conn = new SQLiteConnection(App.FilePath))
-            {
-                conn.CreateTable<UserHistoryClass>();
-                conn.Insert(theHistory);
-
-                //int rowsAdded = conn.Insert(theHistory);
-                //conn.Close();
-            }
+            _downloader.WriteDownloadedFile(video.GetBytes());
+            AddHistoryEntry(video.FullName, videoLink);
         }
 
         private void downloadMP3Button_Clicked(object sender, EventArgs e)
@@ -47,20 +35,17 @@ namespace ProjektDownloadMp3mp4
             var videoLink = Link.Text;
             //string link = "https://www.youtube.com/watch?v=wuJIqmha2Hk";
             var video = YouTube.Default.GetVideo(videoLink); // gets a Video object with info about the video
-            File.WriteAllBytes(Path.Combine(DownloadsFolder, video.FullName), video.GetBytes()); //no permission exception????????? download manager? manifest=yes
+            _downloader.WriteDownloadedFile(video.GetBytes());
+            AddHistoryEntry(video.FullName, videoLink);
+        }
 
-            var videoName = video.FullName;
-            var theHistory = new UserHistoryClass(videoName, videoLink);
-
-            using (var conn = new SQLiteConnection(App.FilePath))
+        private static void AddHistoryEntry(string videoName, string videoLink)
+        {
+            using (var con = new SQLiteConnection(App.FilePath))
             {
-                conn.CreateTable<UserHistoryClass>();
-                conn.Insert(theHistory);
-
-                //int rowsAdded = conn.Insert(theHistory);
-                //conn.Close();
+                con.CreateTable<UserHistoryClass>();
+                con.Insert(new UserHistoryClass(videoName, videoLink));
             }
-            //very nice
         }
 
         private void Entry_Completed(object sender, EventArgs e)

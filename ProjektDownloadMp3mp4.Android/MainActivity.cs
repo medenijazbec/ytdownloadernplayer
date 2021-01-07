@@ -1,8 +1,11 @@
 ﻿using System.IO;
+using Android;
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.App;
+using Android.Support.V4.Content;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Environment = System.Environment;
@@ -23,6 +26,12 @@ namespace ProjektDownloadMp3mp4.Droid
             var fileName = "Baza.db";
             var folderPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var completePath = Path.Combine(folderPath, fileName);
+
+            // attempt to get the storage permission at runtime
+            if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.WriteExternalStorage) != (int) Permission.Granted
+                || ContextCompat.CheckSelfPermission(this, Manifest.Permission.ReadExternalStorage) != (int) Permission.Granted)
+                ActivityCompat.RequestPermissions(this,
+                    new[] {Manifest.Permission.ReadExternalStorage, Manifest.Permission.WriteExternalStorage}, 0);
 
             Platform.Init(this, savedInstanceState);
             Forms.Init(this, savedInstanceState);

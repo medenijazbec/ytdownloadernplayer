@@ -2,7 +2,7 @@
 
 namespace ProjektDownloadMp3mp4.Classess
 {
-    //[Table("Users")]
+    [Table("Users")]
     public class UserHistoryClass
     {
         public UserHistoryClass()

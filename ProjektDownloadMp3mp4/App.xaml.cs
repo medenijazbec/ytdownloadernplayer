@@ -1,13 +1,8 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-namespace ProjektDownloadMp3mp4
+﻿namespace ProjektDownloadMp3mp4
 {
-    public partial class App : Application
+    public partial class App
     {
         public static string FilePath;
-
 
         public App()
         {
@@ -21,10 +16,7 @@ namespace ProjektDownloadMp3mp4
             InitializeComponent();
             MainPage = new MainPage();
             FilePath = filePath;
-
-
         }
-
 
         protected override void OnStart()
         {
@@ -40,9 +32,5 @@ namespace ProjektDownloadMp3mp4
         {
             // Handle when your app resumes
         }
-
- 
-
-
     }
 }

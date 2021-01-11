@@ -2,16 +2,16 @@
 
 namespace ProjektDownloadMp3mp4.Classess
 {
-    [Table("Users")]
-    public class UserHistoryClass
+    [Table("History")]
+    public class HistoryEntry
     {
-        public UserHistoryClass()
+        public HistoryEntry()
         {
             Name = "Developers";
             Link = "https://www.youtube.com/watch?v=KMU0tzLwhbE&ab_channel=1doony4u";
         }
 
-        public UserHistoryClass(string name, string link)
+        public HistoryEntry(string name, string link)
         {
             Name = name;
             Link = link;

@@ -1,4 +1,4 @@
-namespace ProjektDownloadMp3mp4
+namespace ProjektDownloadMp3mp4.Downloading
 {
     public interface IDownloader
     {

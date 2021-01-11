@@ -1,8 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
-using ProjektDownloadMp3mp4.Classess;
-using SQLite;
-using VideoLibrary;
+using ProjektDownloadMp3mp4.Downloading;
 using Xamarin.Forms;
 
 namespace ProjektDownloadMp3mp4
@@ -12,7 +10,7 @@ namespace ProjektDownloadMp3mp4
     [DesignTimeVisible(false)]
     public partial class MainPage
     {
-        private readonly IDownloader _downloader = DependencyService.Get<IDownloader>();
+        private readonly VideoDownload _downloader = new VideoDownload();
 
         public MainPage()
         {
@@ -20,40 +18,25 @@ namespace ProjektDownloadMp3mp4
             //VideoClass video = new VideoClass();
         }
 
-        private void downloadMP4Button_Clicked(object sender, EventArgs e)
+        private void DownloadMp4(object sender, EventArgs e)
         {
-            var videoLink = Link.Text;
-            //string link = "https://www.youtube.com/watch?v=wuJIqmha2Hk";
-            var video = YouTube.Default.GetVideo(videoLink); // gets a Video object with info about the video
-            var filename = video.Title + ".mp4";
-            _downloader.WriteDownloadedFile(video.GetBytes(), filename);
-            AddHistoryEntry(video.FullName, videoLink);
+            CompletedLabel.IsVisible = false;
+            _downloader.DownloadVideo(Link.Text, VideoDownload.DownloadType.Mp4);
+            CompletedLabel.IsVisible = true;
         }
 
-        private void downloadMP3Button_Clicked(object sender, EventArgs e)
+        private void DownloadMp3(object sender, EventArgs e)
         {
-            var videoLink = Link.Text;
-            //string link = "https://www.youtube.com/watch?v=wuJIqmha2Hk";
-            var video = YouTube.Default.GetVideo(videoLink); // gets a Video object with info about the video
-            var filename = video.Title + ".mp3";
-            _downloader.WriteDownloadedFile(video.GetBytes(), filename);
-            AddHistoryEntry(video.FullName, videoLink);
+            CompletedLabel.IsVisible = false;
+            _downloader.DownloadVideo(Link.Text, VideoDownload.DownloadType.Mp3);
+            CompletedLabel.IsVisible = true;
         }
 
-        private static void AddHistoryEntry(string videoName, string videoLink)
-        {
-            using (var con = new SQLiteConnection(App.FilePath))
-            {
-                con.CreateTable<UserHistoryClass>();
-                con.Insert(new UserHistoryClass(videoName, videoLink));
-            }
-        }
-
-        private void Entry_Completed(object sender, EventArgs e)
+        private void EntryCompleted(object sender, EventArgs e)
         {
         }
 
-        private void historyButton_Clicked(object sender, EventArgs e)
+        private void ShowHistory(object sender, EventArgs e)
         {
             Application.Current.MainPage = new HistoryPage();
         }

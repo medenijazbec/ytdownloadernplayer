@@ -9,7 +9,7 @@
 
     <StackLayout BackgroundColor="BlanchedAlmond">
         <Entry x:Name="Link" Placeholder="Paste your desired YouTube link here" Margin="10, 200, 10, 10"
-               Completed="Entry_Completed" TextColor="#282828" HorizontalOptions="Center" />
+               Completed="EntryCompleted" TextColor="#282828" HorizontalOptions="Center" />
         <Grid Margin="10, 50, 10, 10" Padding="0" RowSpacing="2" ColumnSpacing="2" BackgroundColor="BlanchedAlmond"
               HorizontalOptions="CenterAndExpand">
             <Grid.ColumnDefinitions>
@@ -17,12 +17,14 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button Grid.Row="0" Grid.Column="0" Text="Download Mp3" Clicked="downloadMP3Button_Clicked"
+            <Button Grid.Row="0" Grid.Column="0" Text="Download Mp3" Clicked="DownloadMp3"
                     HeightRequest="55" BackgroundColor="#282828" TextColor="BlanchedAlmond" />
-            <Button Grid.Row="0" Grid.Column="1" Text="Download Mp4" Clicked="downloadMP4Button_Clicked"
+            <Button Grid.Row="0" Grid.Column="1" Text="Download Mp4" Clicked="DownloadMp4"
                     HeightRequest="55" BackgroundColor="#282828" TextColor="BlanchedAlmond" />
-            <Button Grid.Row="0" Grid.Column="2" Text="History" Clicked="historyButton_Clicked" HeightRequest="55"
+            <Button Grid.Row="0" Grid.Column="2" Text="History" Clicked="ShowHistory" HeightRequest="55"
                     WidthRequest="500" BackgroundColor="#282828" TextColor="BlanchedAlmond" HorizontalOptions="Center" />
         </Grid>
+        <Label x:Name="CompletedLabel" Text="Completed" IsVisible="False" HorizontalOptions="CenterAndExpand"
+               HorizontalTextAlignment="Center" TextColor="#282828" />
     </StackLayout>
 </ContentPage>

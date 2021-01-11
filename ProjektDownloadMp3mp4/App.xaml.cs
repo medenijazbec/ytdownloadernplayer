@@ -7,7 +7,6 @@
         public App()
         {
             InitializeComponent();
-
             MainPage = new MainPage();
         }
 

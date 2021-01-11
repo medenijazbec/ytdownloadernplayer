@@ -27,7 +27,7 @@ namespace ProjektDownloadMp3mp4.Droid
             var folderPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var completePath = Path.Combine(folderPath, fileName);
 
-            // attempt to get the storage permission at runtime
+            // attempt to get the storage permissions at runtime
             if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.WriteExternalStorage) != (int) Permission.Granted
                 || ContextCompat.CheckSelfPermission(this, Manifest.Permission.ReadExternalStorage) != (int) Permission.Granted)
                 ActivityCompat.RequestPermissions(this,

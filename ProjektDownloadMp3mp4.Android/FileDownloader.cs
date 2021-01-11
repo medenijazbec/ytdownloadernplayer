@@ -9,15 +9,17 @@ namespace ProjektDownloadMp3mp4.Droid
 {
     public class FileDownloader : IDownloader
     {
-        public void WriteDownloadedFile(byte[] bytes)
+        public void WriteDownloadedFile(byte[] bytes, string filename)
         {
-            var dir = Environment.ExternalStorageDirectory?.AbsolutePath;
-            WriteDownloadedFile(bytes, dir);
+            var dir = Environment.GetExternalStoragePublicDirectory(Environment
+                .DirectoryDownloads)?.AbsolutePath;
+            var path = Path.Combine(dir ?? string.Empty, filename);
+            WriteLowLevel(bytes, path);
         }
 
-        public void WriteDownloadedFile(byte[] bytes, string dir)
+        private static void WriteLowLevel(byte[] bytes, string path)
         {
-            File.WriteAllBytes(dir, bytes);
+            File.WriteAllBytes(path, bytes);
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.IO;
 using ProjektDownloadMp3mp4.Classess;
 using SQLite;
 using VideoLibrary;
@@ -13,7 +12,7 @@ namespace ProjektDownloadMp3mp4
     [DesignTimeVisible(false)]
     public partial class MainPage
     {
-        private IDownloader _downloader = DependencyService.Get<IDownloader>();
+        private readonly IDownloader _downloader = DependencyService.Get<IDownloader>();
 
         public MainPage()
         {
@@ -26,7 +25,8 @@ namespace ProjektDownloadMp3mp4
             var videoLink = Link.Text;
             //string link = "https://www.youtube.com/watch?v=wuJIqmha2Hk";
             var video = YouTube.Default.GetVideo(videoLink); // gets a Video object with info about the video
-            _downloader.WriteDownloadedFile(video.GetBytes());
+            var filename = video.Title + ".mp4";
+            _downloader.WriteDownloadedFile(video.GetBytes(), filename);
             AddHistoryEntry(video.FullName, videoLink);
         }
 
@@ -35,7 +35,8 @@ namespace ProjektDownloadMp3mp4
             var videoLink = Link.Text;
             //string link = "https://www.youtube.com/watch?v=wuJIqmha2Hk";
             var video = YouTube.Default.GetVideo(videoLink); // gets a Video object with info about the video
-            _downloader.WriteDownloadedFile(video.GetBytes());
+            var filename = video.Title + ".mp3";
+            _downloader.WriteDownloadedFile(video.GetBytes(), filename);
             AddHistoryEntry(video.FullName, videoLink);
         }
 

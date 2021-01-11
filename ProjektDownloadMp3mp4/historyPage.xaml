@@ -9,7 +9,7 @@
 
     <ContentPage.Content>
         <StackLayout BackgroundColor="BlanchedAlmond">
-            <ListView x:Name="historyListView">
+            <ListView x:Name="HistoryListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding Name}" Detail="{Binding Link}" TextColor="#282828" />

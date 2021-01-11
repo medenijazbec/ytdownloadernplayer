@@ -28,13 +28,12 @@ namespace ProjektDownloadMp3mp4
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
             using (var conn = new SQLiteConnection(App.FilePath))
             {
                 conn.CreateTable<UserHistoryClass>();
                 var theHistory = conn.Table<UserHistoryClass>().ToList();
                 //conn.Close();
-                historyListView.ItemsSource = theHistory;
+                HistoryListView.ItemsSource = theHistory;
             }
         }
     }
